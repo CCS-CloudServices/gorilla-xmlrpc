@@ -97,7 +97,7 @@ func (c *CodecRequest) WriteResponse(w http.ResponseWriter, response interface{}
 	if c.err == nil {
 		c.err = methodErr
 	}
-	buffer := bytes.NewBuffer(make([]byte, 0))
+	buffer := bytes.NewBuffer([]byte("<?xml version='1.0' encoding='utf-8'?>"))
 	if c.err != nil {
 		var fault Fault
 		switch c.err.(type) {

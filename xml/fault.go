@@ -13,12 +13,13 @@ import (
 // NOTE: XMLRPC spec doesn't specify any Fault codes.
 // These codes seems to be widely accepted, and taken from the http://xmlrpc-epi.sourceforge.net/specs/rfc.fault_codes.php
 var (
-	FaultInvalidParams        = Fault{Code: -32602, String: "Invalid Method Parameters"}
-	FaultWrongArgumentsNumber = Fault{Code: -32602, String: "Wrong Arguments Number"}
-	FaultInternalError        = Fault{Code: -32603, String: "Internal Server Error"}
-	FaultApplicationError     = Fault{Code: -32500, String: "Application Error"}
-	FaultSystemError          = Fault{Code: -32400, String: "System Error"}
-	FaultDecode               = Fault{Code: -32700, String: "Parsing error: not well formed"}
+	FaultInvalidParams         = Fault{Code: -32602, String: "Invalid Method Parameters"}
+	FaultWrongArgumentsNumber  = Fault{Code: -32602, String: "Wrong Arguments Number"}
+	FaultInternalError         = Fault{Code: -32603, String: "Internal Server Error"}
+	FaultMethodNotAllowedError = Fault{Code: -32603, String: "Method Not Allowed"}
+	FaultApplicationError      = Fault{Code: -32500, String: "Application Error"}
+	FaultSystemError           = Fault{Code: -32400, String: "System Error"}
+	FaultDecode                = Fault{Code: -32700, String: "Parsing error: not well formed"}
 )
 
 // Fault represents XML-RPC Fault.
