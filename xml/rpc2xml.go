@@ -24,11 +24,11 @@ func rpcRequest2XML(method string, rpc interface{}) (string, error) {
 
 func rpcResponse2XMLStr(rpc interface{}) (string, error) {
 	buffer := bytes.NewBuffer(make([]byte, 0))
-	err := rpcResponse2XML(rpc, buffer)
+	err := RpcResponse2XML(rpc, buffer)
 	return buffer.String(), err
 }
 
-func rpcResponse2XML(rpc interface{}, writer io.Writer) error {
+func RpcResponse2XML(rpc interface{}, writer io.Writer) error {
 	fmt.Fprintf(writer, "<methodResponse>")
 	err := rpcParams2XML(rpc, writer)
 	fmt.Fprintf(writer, "</methodResponse>")
