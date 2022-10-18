@@ -85,7 +85,7 @@ func (c *CodecRequest) Method() (string, error) {
 // args is the pointer to the Service.Args structure
 // it gets populated from temporary XML structure
 func (c *CodecRequest) ReadRequest(args interface{}) error {
-	c.err = xml2RPC(c.request.rawxml, args)
+	c.err = XML2RPC(c.request.rawxml, args)
 	return nil
 }
 
@@ -107,9 +107,9 @@ func (c *CodecRequest) WriteResponse(w http.ResponseWriter, response interface{}
 			fault = FaultApplicationError
 			fault.String += fmt.Sprintf(": %v", c.err)
 		}
-		fault2XML(fault, buffer)
+		Fault2XML(fault, buffer)
 	} else {
-		rpcResponse2XML(response, buffer)
+		RpcResponse2XML(response, buffer)
 	}
 
 	w.Header().Set("Content-Type", "text/xml; charset=utf-8")

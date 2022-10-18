@@ -48,7 +48,7 @@ type member struct {
 	Value value  `xml:"value"`
 }
 
-func xml2RPC(xmlraw string, rpc interface{}) error {
+func XML2RPC(xmlraw string, rpc interface{}) error {
 	// Unmarshal raw XML into the temporal structure
 	var ret response
 	decoder := xml.NewDecoder(bytes.NewReader([]byte(xmlraw)))
